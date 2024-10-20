@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/PRJ301/BookStore/web/view/common/breadcrumbs-area.jsp</file>
-            <file>file:/G:/PRJ301/BookStore/web/view/common/main-menu-area.jsp</file>
-            <file>file:/G:/PRJ301/BookStore/web/view/common/mobile-menu-area.jsp</file>
-            <file>file:/G:/PRJ301/BookStore/web/view/home.jsp</file>
-            <file>file:/G:/PRJ301/BookStore/web/view/common/footer-area.jsp</file>
-            <file>file:/G:/PRJ301/BookStore/web/view/common/header-top-area.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/src/java/dal/GenericDAO.java</file>
+            <file>file:/G:/PRJ301/BookStore/src/java/dal/DBContext.java</file>
+            <file>file:/G:/PRJ301/BookStore/src/java/dal/ProductDAO.java</file>
         </group>
     </open-files>
 </project-private>

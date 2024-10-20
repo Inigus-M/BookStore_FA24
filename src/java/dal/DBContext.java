@@ -12,12 +12,12 @@ import java.sql.*;
  */
 public class DBContext {
 
-    protected Connection connection;
+    protected Connection conn;
 
     /**
-     * get an connection
+     * get an conn
      *
-     * @return connection or null
+     * @return conn or null
      * @throws ClassNotFoundException
      */
     public Connection getConnection() {
@@ -26,8 +26,8 @@ public class DBContext {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=4USER_PRJ301";
             String user = "sa";
             String password = "sa";
-            connection = DriverManager.getConnection(url, user, password);
-            return connection;
+            conn = DriverManager.getConnection(url, user, password);
+            return conn;
         } catch (SQLException | ClassNotFoundException e) {
             System.err.println("Error " + e.getMessage() + " at DBContext");
             return null;
@@ -36,7 +36,7 @@ public class DBContext {
 /*
     public static void main(String[] args) {
         DBContext test = new DBContext();
-        test.connection = test.getConnection();
-        System.out.println(test.connection);
+        test.conn = test.getConnection();
+        System.out.println(test.conn);
     }*/
 }
