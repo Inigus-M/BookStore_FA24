@@ -1,5 +1,6 @@
 package dal;
 
+import constant.CommonConst;
 import entity.Product;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class ProductDAO extends GenericDAO {
 
     @Override
     public int insert(Object t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return insertGenericDAO(t);
     }
 
     public List<Product> getProductByCid(String cid) {
@@ -48,12 +49,6 @@ public class ProductDAO extends GenericDAO {
         return list;
     }
 
-    public static void main(String[] args) {
-        for (Product p : new ProductDAO().findAll()) {
-            System.out.println(p);
-        }
-    }
-
     public Product findById(Product product) {
         String sql = "SELECT [id]\n"
                 + "      ,[name]\n"
@@ -67,13 +62,76 @@ public class ProductDAO extends GenericDAO {
         pm = new LinkedHashMap<>();
         pm.put("id", product.getId());
         List<Product> list = queryGenericDAO(Product.class, sql, pm);
-        
-        // Neu list rong => tra ve null
-        // Neu nguoc lai => tra ve oj o vi tri 0
+        //neu nhu list ma empty => ko co san pham => tra ve null
+        //nguoc lai list ma ko empty => co san pham => nam o vi tri dau tien => lay ve o vi tri so 0
         return list.isEmpty() ? null : list.get(0);
     }
 
-    public List<Product> findByCategory(String categoryId) {
+    public List<Product> findByCategory(String categoryId, int page) {
+        String sql = "SELECT *\n"
+                + "FROM [Product]\n"
+                + "WHERE categoryId = ?\n"
+                + "ORDER BY id\n"
+                + "OFFSET ? ROWS\n"
+                + "FETCH NEXT ? ROWS ONLY";
+        pm = new LinkedHashMap<>();
+        pm.put("categoryId", categoryId);
+        pm.put("offset", (page - 1) * CommonConst.RECORD_PER_PAGE);
+        pm.put("fetch", CommonConst.RECORD_PER_PAGE);
+        return queryGenericDAO(Product.class, sql, pm);
+    }
+
+    public List<Product> findByName(String keyword, int page) {
+        String sql = "SELECT *\n"
+                + "FROM [Product]\n"
+                + "  where [name] like ?";
+        pm = new LinkedHashMap<>();
+        pm.put("name", "%" + keyword + "%");
+        return queryGenericDAO(Product.class, sql, pm);
+    }
+
+    public int findTotalRecordByCategory(String categoryId) {
+        String sql = "SELECT count(*)\n"
+                + "  FROM Product\n"
+                + "  where categoryId = ?";
+        pm = new LinkedHashMap<>();
+        pm.put("categoryId", categoryId);
+        return findTotalRecordGenericDAO(Product.class, sql, pm);
+    }
+
+    public int findTotalRecordByName(String keyword) {
+        String sql = "SELECT count(*)\n"
+                + "FROM [Product]\n"
+                + "WHERE name like '%?%'";
+        pm = new LinkedHashMap<>();
+        pm.put("keyword", keyword);
+        return findTotalRecordGenericDAO(Product.class, sql, pm);
+    }
+    
+    public List<Product> findByPage(int page) {
+        String sql = "SELECT *\n"
+                + "  FROM Product\n"
+                + "  ORDER BY id\n"
+                + "  OFFSET ? ROWS\n" //( PAGE - 1 ) * Y
+                + "  FETCH NEXT ? ROWS ONLY"; // NUMBER_RECORD_PER_PAGE
+        pm = new LinkedHashMap<>();
+        pm.put("offset", (page - 1) * CommonConst.RECORD_PER_PAGE);
+        pm.put("fetch", CommonConst.RECORD_PER_PAGE);
+        return queryGenericDAO(Product.class, sql, pm);
+    }
+    
+    public int findTotalRecord() {
+        String sql = "SELECT count(*)\n"
+                + "  FROM Product\n";
+        pm = new LinkedHashMap<>();
+        return findTotalRecordGenericDAO(Product.class, sql, pm);
+    }
+
+    public void update(Product product) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void deleteById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -1,6 +1,11 @@
+<%-- 
+    Author     : 4USER-FPT
+--%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
-<html class="no-js" lang="en">
+<html>
 
 
     <!-- Mirrored from htmldemo.net/koparion/koparion/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Feb 2024 17:30:51 GMT -->
@@ -43,28 +48,24 @@
         <!-- header-area-start -->
         <header>
             <!-- header-top-area-start -->
-            <jsp:include page="../common/header-top-area.jsp"></jsp:include>
+            <jsp:include page="../common/homePage/header-top-area.jsp"></jsp:include>
                 <!-- header-top-area-end -->
                 <!-- header-mid-area-start -->
-            <jsp:include page="../common/header-mid-area.jsp"></jsp:include>
+            <jsp:include page="../common/homePage/header-mid-area.jsp"></jsp:include>
                 <!-- header-mid-area-end -->
-
                 <!-- main-menu-area-start -->
-            <jsp:include page="../common/main-menu-area.jsp"></jsp:include>
+            <jsp:include page="../common/homePage/main-menu-area.jsp"></jsp:include>
                 <!-- main-menu-area-end -->
-
                 <!-- mobile-menu-area-start -->
-            <jsp:include page="../common/mobile-menu-area.jsp"></jsp:include>
+            <jsp:include page="../common/homePage/mobile-menu-area.jsp"></jsp:include>
                 <!-- mobile-menu-area-end -->
             </header>
             <!-- header-area-end -->
             <!-- breadcrumbs-area-start -->
-        <jsp:include page="../common/breadcrumbs-area.jsp"></jsp:include>
+        <jsp:include page="../common/homePage/breadcrumbs-area.jsp"></jsp:include>
             <!-- breadcrumbs-area-end -->
             <!-- shop-main-area-start -->
             <div class="shop-main-area mb-70">
-
-                <!--*************************************************************************-->
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-md-12 col-12 order-lg-1 order-2 mt-sm-50 mt-xs-40">
@@ -142,8 +143,8 @@
                                                 <h4><a href="#">Endeavor Daytrip</a></h4>
                                                 <div class="product-price">
                                                     <ul>
-                                                        <li>$30.00</li>
-                                                        <li class="old-price">$33.00</li>
+                                                        <li>$69.69</li>
+                                                        <li class="old-price">$84.00</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -333,7 +334,7 @@
                                             <div class="product-wrapper mb-40">
                                                 <div class="product-img">
                                                     <a href="product-details?id=${p.id}">
-                                                        <img src="${pageContext.request.contextPath}/img/product/1.jpg" alt="book" class="primary" />
+                                                        <img src="${pageContext.request.contextPath}/img/product/1_testing.png" alt="book" class="primary" />
                                                     </a>
                                                     <div class="quick-view">
                                                         <a class="action-view" href="#" data-bs-target="#productModal" data-bs-toggle="modal" title="Quick View">
@@ -345,7 +346,7 @@
                                                     <h4><a href="#">${p.name}</a></h4>
                                                     <div class="product-price">
                                                         <ul>
-                                                            <li>$60.00</li>
+                                                            <li>$${p.price}</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -365,247 +366,10 @@
                                     </c:forEach>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="list">
-                                <!-- single-shop-start -->
-                                <div class="single-shop mb-30">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-12">
-                                            <div class="product-wrapper-2">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="${pageContext.request.contextPath}/img/product/3.jpg" alt="book" class="primary" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-12">
-                                            <div class="product-wrapper-content">
-                                                <div class="product-details">
-                                                    <div class="product-rating">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <h4><a href="#">Crown Summit</a></h4>
-                                                    <div class="product-price">
-                                                        <ul>
-                                                            <li>$36.00</li>
-                                                            <li class="old-price">$38.00</li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>The sporty Joust Duffle Bag can't be beat - not in the gym, not on the luggage carousel, not anywhere. Big enough to haul a basketball or soccer ball and some sneakers with plenty of room to spare,... </p>
-                                                </div>
-                                                <div class="product-link">
-                                                    <div class="product-button">
-                                                        <a href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                    </div>
-                                                    <div class="add-to-link">
-                                                        <ul>
-                                                            <li><a href="product-details.html" title="Details"><i class="fa fa-external-link"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single-shop-end -->
-                                <!-- single-shop-start -->
-                                <div class="single-shop mb-30">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-12">
-                                            <div class="product-wrapper-2">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="${pageContext.request.contextPath}/img/product/18.jpg" alt="book" class="primary" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-12">
-                                            <div class="product-wrapper-content">
-                                                <div class="product-details">
-                                                    <div class="product-rating">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <h4><a href="#">Driven Backpack</a></h4>
-                                                    <div class="product-price">
-                                                        <ul>
-                                                            <li>$34.00</li>
-                                                            <li class="old-price">$36.00</li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>The sporty Joust Duffle Bag can't be beat - not in the gym, not on the luggage carousel, not anywhere. Big enough to haul a basketball or soccer ball and some sneakers with plenty of room to spare,... </p>
-                                                </div>
-                                                <div class="product-link">
-                                                    <div class="product-button">
-                                                        <a href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                    </div>
-                                                    <div class="add-to-link">
-                                                        <ul>
-                                                            <li><a href="product-details.html" title="Details"><i class="fa fa-external-link"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single-shop-end -->
-                                <!-- single-shop-start -->
-                                <div class="single-shop mb-30">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-12">
-                                            <div class="product-wrapper-2">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="${pageContext.request.contextPath}/img/product/10.jpg" alt="book" class="primary" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-12">
-                                            <div class="product-wrapper-content">
-                                                <div class="product-details">
-                                                    <div class="product-rating">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <h4><a href="#">Fusion Backpack</a></h4>
-                                                    <div class="product-price">
-                                                        <ul>
-                                                            <li>$59.00</li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>The sporty Joust Duffle Bag can't be beat - not in the gym, not on the luggage carousel, not anywhere. Big enough to haul a basketball or soccer ball and some sneakers with plenty of room to spare,... </p>
-                                                </div>
-                                                <div class="product-link">
-                                                    <div class="product-button">
-                                                        <a href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                    </div>
-                                                    <div class="add-to-link">
-                                                        <ul>
-                                                            <li><a href="product-details.html" title="Details"><i class="fa fa-external-link"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single-shop-end -->
-                                <!-- single-shop-start -->
-                                <div class="single-shop mb-30">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-12">
-                                            <div class="product-wrapper-2">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="${pageContext.request.contextPath}/img/product/5.jpg" alt="book" class="primary" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-12">
-                                            <div class="product-wrapper-content">
-                                                <div class="product-details">
-                                                    <div class="product-rating">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <h4><a href="#">Set of Sprite Yoga Straps</a></h4>
-                                                    <div class="product-price">
-                                                        <ul>
-                                                            <li> <span>Starting at</span>$34.00</li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>The sporty Joust Duffle Bag can't be beat - not in the gym, not on the luggage carousel, not anywhere. Big enough to haul a basketball or soccer ball and some sneakers with plenty of room to spare,... </p>
-                                                </div>
-                                                <div class="product-link">
-                                                    <div class="product-button">
-                                                        <a href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                    </div>
-                                                    <div class="add-to-link">
-                                                        <ul>
-                                                            <li><a href="product-details.html" title="Details"><i class="fa fa-external-link"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single-shop-end -->
-                                <!-- single-shop-start -->
-                                <div class="single-shop">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-12">
-                                            <div class="product-wrapper-2">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="${pageContext.request.contextPath}/img/product/19.jpg" alt="book" class="primary" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-12">
-                                            <div class="product-wrapper-content">
-                                                <div class="product-details">
-                                                    <div class="product-rating">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <h4><a href="#">Compete Track Tote</a></h4>
-                                                    <div class="product-price">
-                                                        <ul>
-                                                            <li>$32.00</li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>The sporty Joust Duffle Bag can't be beat - not in the gym, not on the luggage carousel, not anywhere. Big enough to haul a basketball or soccer ball and some sneakers with plenty of room to spare,... </p>
-                                                </div>
-                                                <div class="product-link">
-                                                    <div class="product-button">
-                                                        <a href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                    </div>
-                                                    <div class="add-to-link">
-                                                        <ul>
-                                                            <li><a href="product-details.html" title="Details"><i class="fa fa-external-link"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single-shop-end -->
-                            </div>
+                            
                         </div>
-                        <!-- tab-area-end -->
+                        
+                        <!-- tab-area-end -->                        
                         <!-- pagination-area-start -->
                         <div class="pagination-area mt-50">
                             <div class="list-page-2">
@@ -613,10 +377,12 @@
                             </div>
                             <div class="page-number">
                                 <ul>
-                                    <li><a href="#" class="active">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
+                                    <c:forEach begin="1" end="${pageControl.totalPage}" var="pageNumber">
+                                        <!--<li><a href="#" class="active">1</a></li>-->
+                                        <li class="${pageNumber == pageControl.page ? 'active' : ''}">
+                                            <a href="${pageControl.urlPattern}page=${pageNumber}">${pageNumber}</a>
+                                        </li>
+                                    </c:forEach>
                                     <li><a href="#" class="angle"><i class="fa fa-angle-right"></i></a></li>
                                 </ul>
                             </div>
@@ -624,12 +390,11 @@
                         <!-- pagination-area-end -->
                     </div>
                 </div>
-            </div>
-            <!--*************************************************************************-->
         </div>
-        <!-- shop-main-area-end -->
+                        
+        <!-- shop-main-area-end -->        
         <!-- footer-area-start -->
-        <jsp:include page="../common/footer-area.jsp"></jsp:include>
+        <jsp:include page="../common/homePage/footer.jsp"></jsp:include>
             <!-- footer-area-end -->
             <!-- Modal -->
             <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
