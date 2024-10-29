@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 /**
@@ -207,6 +208,14 @@ public abstract class GenericDAO<T> extends DBContext {
 
         Class<?> fieldType = field.getType();
         String fieldName = field.getName();
+        
+        // Kiểm tra xem fieldType có phải là một collection (như List, Set, ...) hay không
+        if (Collection.class.isAssignableFrom(fieldType)) {
+            return null; // Bỏ qua và không xử lý gì nữa
+        } // Kiểm tra xem fieldType có phải là một Map hay không
+        else if (Map.class.isAssignableFrom(fieldType)) {
+            return null; // Bỏ qua và không xử lý gì nữa
+        }
 
         // Kiểm tra kiểu dữ liệu và convert sang đúng kiểu
         if (fieldType == String.class) {
