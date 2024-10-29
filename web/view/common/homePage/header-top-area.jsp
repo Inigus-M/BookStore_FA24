@@ -36,7 +36,7 @@
                             <!--Nguoi dung-->
                             <c:if test="${account.roleId == 2}">
                                 <li>
-                                    <a href="${pageContext.request.contextPath}/dashboard">My Account</a>
+                                    <a href="${pageContext.request.contextPath}/dashboard">${account.username}</a>
                                 </li>
                             </c:if>
                             <!--Admin-->

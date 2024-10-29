@@ -107,7 +107,7 @@ public class ProductDAO extends GenericDAO {
         pm.put("keyword", keyword);
         return findTotalRecordGenericDAO(Product.class, sql, pm);
     }
-    
+
     public List<Product> findByPage(int page) {
         String sql = "SELECT *\n"
                 + "  FROM Product\n"
@@ -119,7 +119,7 @@ public class ProductDAO extends GenericDAO {
         pm.put("fetch", CommonConst.RECORD_PER_PAGE);
         return queryGenericDAO(Product.class, sql, pm);
     }
-    
+
     public int findTotalRecord() {
         String sql = "SELECT count(*)\n"
                 + "  FROM Product\n";
@@ -128,10 +128,30 @@ public class ProductDAO extends GenericDAO {
     }
 
     public void update(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "UPDATE [dbo].[Product]\n"
+                + "   SET [name] = ?\n"
+                + "      ,[image] = ?\n"
+                + "      ,[quantity] = ?\n"
+                + "      ,[price] = ?\n"
+                + "      ,[description] = ?\n"
+                + "      ,[categoryId] = ?\n"
+                + " WHERE [id] = ?";
+        pm = new LinkedHashMap<>();
+        pm.put("name", product.getName());
+        pm.put("image", product.getImage());
+        pm.put("quantity", product.getQuantity());
+        pm.put("price", product.getPrice());
+        pm.put("description", product.getDescription());
+        pm.put("categoryId", product.getCategoryId());
+        pm.put("id", product.getId());
+        updateGenericDAO(sql, pm);
     }
 
     public void deleteById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "DELETE FROM [dbo].[Product]\n"
+                + "  WHERE [id] = ?";
+        pm = new LinkedHashMap<>();
+        pm.put("id", id);
+        deleteGenericDAO(sql, pm);
     }
 }
