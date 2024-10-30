@@ -45,39 +45,28 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Order ID</th>
+                                                <th>Product</th>
                                                 <th>Total Price</th>
                                                 <th>Created date</th>
                                                 <th>Action</th>
+                                                
+                                                <>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <c:forEach items="${userOrder}" var="ud">
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
+                                                <td name="id">${ud.id}</td>
+                                                <td name="amount">$${ud.amount}</td>
+                                                <td name="date">${ud.createAt}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary"
-                                                            data-toggle="modal" 
-                                                            data-target="#editProductModal"
-                                                            onclick="editProductModal(this)">
-                                                        Edit
-                                                    </button>
+                                                    <a href="${pageContext.request.contextPath}/payment" class="btn btn-primary">Details</a>
                                                     <button type="button" class="btn btn-danger" 
-                                                            data-toggle="modal" data-target="#delete-product-modal"
-                                                            onclick="deleteProductModal(${p.id})">
+                                                            data-toggle="modal" data-target="#delete-cart-modal"
+                                                            onclick="deleteCartModal(${ud.id})">
                                                         Delete
                                                     </button>
                                                 </td>
-                                            </tr>
-                                        <c:forEach items="${userOrder}" var="ud">
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
                                             </tr>
                                         </c:forEach>
                                         </tbody>
@@ -95,6 +84,8 @@
             <!-- /#wrapper -->
             <!-- Logout Modal-->
         <jsp:include page="../../common/user/logOutModal.jsp"></jsp:include>
+        
+        <jsp:include page="deleteCartModal.jsp"></jsp:include>
             <!-- Bootstrap core JavaScript-->
             <script src="${pageContext.request.contextPath}/vendor-admin/jquery/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/vendor-admin/bootstrap/js/bootstrap.bundle.min.js"></script>

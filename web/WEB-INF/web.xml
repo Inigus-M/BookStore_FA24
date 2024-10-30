@@ -52,6 +52,10 @@
         <servlet-name>PaymentController</servlet-name>
         <servlet-class>controller.user.PaymentController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderCartServlet</servlet-name>
+        <servlet-class>controller.user.OrderCartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -82,6 +86,10 @@
     <servlet-mapping>
         <servlet-name>PaymentController</servlet-name>
         <url-pattern>/payment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderCartServlet</servlet-name>
+        <url-pattern>/usercart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
