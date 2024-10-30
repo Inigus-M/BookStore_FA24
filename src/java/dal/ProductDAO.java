@@ -49,6 +49,38 @@ public class ProductDAO extends GenericDAO {
         return list;
     }
 
+    public List<Product> findProductByOrderId(String orderId) {
+        // Tao list chua cac product
+        List<Product> userProduct = new ArrayList<>();
+        // Truy van lay du lieu
+        String sql = "SELECT p.id, p.name, p.image, p.quantity, p.price, p.description, p.categoryId\n"
+                + "FROM OrderDetails od\n"
+                + "JOIN Product p ON od.productId = p.id\n"
+                + "WHERE od.orderId = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, orderId);
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Product p = new Product();
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setImage(rs.getString("image"));
+                p.setQuantity(rs.getInt("quantity"));
+                p.setQuantity(rs.getInt("quantity"));
+                p.setPrice(rs.getDouble("price"));
+                p.setDescription(rs.getString("description"));
+                p.setCategoryId(rs.getInt("categoryId"));
+                
+                userProduct.add(p);
+            }
+        } catch (SQLException e) {
+        }
+        return userProduct;
+    }
+
     public Product findById(Product product) {
         String sql = "SELECT [id]\n"
                 + "      ,[name]\n"

@@ -96,33 +96,61 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${cart.listOrderDetails}" var="od">
-                                    <c:forEach items="${listProduct}" var="product">
-                                        <c:if test="${product.id == od.productId}">
-                                            <c:set var="p" value="${product}"></c:set>
-                                        </c:if>
+                                    <c:forEach items="${orderedProduct}" var="p">
+                                        <c:forEach items="${oderedProductDetails}" var="od">
+                                            <!-- Kiểm tra xem sản phẩm trong orderedProduct có khớp với oderedProductDetails không -->
+                                            <c:if test="${p.id == od.productId}">
+                                                <tr>
+                                                    <td class="product-thumbnail"><a href="#"><img src="${p.image}" alt="${p.name}" /></a></td>
+                                                    <td class="product-name"><a href="#">${p.name}</a></td>
+                                                    <td class="product-price"><span class="amount">${p.price}</span></td>
+                                                    <td class="product-quantity">
+                                                        <form action="payment?action=change-quantity" method="POST">
+                                                            <input type="hidden" name="id" value="${p.id}"/>
+                                                            <input type="number" name="quantity" 
+                                                                   value="${od.quantity}"
+                                                                   onchange="return this.closest('form').submit()"/>
+                                                        </form>
+                                                    </td>
+                                                    <td class="product-subtotal">${p.price * od.quantity}</td>
+                                                    <td class="product-remove">
+                                                        <form action="payment?action=delete" method="POST">
+                                                            <input type="hidden" name="id" value="${p.id}"/>
+                                                            <a href="#" onclick="return this.closest('form').submit()"><i class="fa fa-times"></i></a>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </c:if>
+                                        </c:forEach>
                                     </c:forEach>
-                                    <tr>
-                                        <td class="product-thumbnail"><a href="#"><img src="${p.image}" alt="${p.name}" /></a></td>
-                                        <td class="product-name"><a href="#">${p.name}</a></td>
-                                        <td class="product-price"><span class="amount">${p.price}</span></td>
-                                        <td class="product-quantity">
-                                            <form action="payment?action=change-quantity" method="POST">
-                                                <input type="hidden" name="id" value="${p.id}"/>
-                                                <input type="number" name="quantity" 
-                                                       value="${od.quantity}"
-                                                       onchange="return this.closest('form').submit()"/>
-                                            </form>
-                                        </td>
-                                        <td class="product-subtotal">${p.price * od.quantity}</td>
-                                        <td class="product-remove">
-                                            <form action = payment?action=delete method="POST">
-                                                <input type="hidden" name="id" value="${p.id}"/>
-                                                <a href="#" onclick="return this.closest('form').submit()"><i class="fa fa-times"></i></a>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+
+                                    <c:forEach items="${cart.listOrderDetails}" var="od">
+                                        <c:forEach items="${listProduct}" var="product">
+                                            <c:if test="${product.id == od.productId}">
+                                                <c:set var="p" value="${product}"></c:set>
+                                            </c:if>
+                                        </c:forEach>
+                                        <tr>
+                                            <td class="product-thumbnail"><a href="#"><img src="${p.image}" alt="${p.name}" /></a></td>
+                                            <td class="product-name"><a href="#">${p.name}</a></td>
+                                            <td class="product-price"><span class="amount">${p.price}</span></td>
+                                            <td class="product-quantity">
+                                                <form action="payment?action=change-quantity" method="POST">
+                                                    <input type="hidden" name="id" value="${p.id}"/>
+                                                    <input type="number" name="quantity" 
+                                                           value="${od.quantity}"
+                                                           onchange="return this.closest('form').submit()"/>
+                                                </form>
+                                            </td>
+                                            <td class="product-subtotal">${p.price * od.quantity}</td>
+                                            <td class="product-remove">
+                                                <form action = payment?action=delete method="POST">
+                                                    <input type="hidden" name="id" value="${p.id}"/>
+                                                    <a href="#" onclick="return this.closest('form').submit()"><i class="fa fa-times"></i></a>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>

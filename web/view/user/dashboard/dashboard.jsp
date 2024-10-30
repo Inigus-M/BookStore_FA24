@@ -45,12 +45,10 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Product</th>
+                                                <th>Order ID</th>
                                                 <th>Total Price</th>
                                                 <th>Created date</th>
                                                 <th>Action</th>
-                                                
-                                                <>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -60,7 +58,7 @@
                                                 <td name="amount">$${ud.amount}</td>
                                                 <td name="date">${ud.createAt}</td>
                                                 <td>
-                                                    <a href="${pageContext.request.contextPath}/payment" class="btn btn-primary">Details</a>
+                                                    <a href="${pageContext.request.contextPath}/payment?orderId=${ud.id}" class="btn btn-primary">Details</a>
                                                     <button type="button" class="btn btn-danger" 
                                                             data-toggle="modal" data-target="#delete-cart-modal"
                                                             onclick="deleteCartModal(${ud.id})">

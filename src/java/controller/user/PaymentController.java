@@ -7,12 +7,13 @@ package controller.user;
 import constant.CommonConst;
 import dal.OrderDAO;
 import dal.OrderDetailsDAO;
+import dal.ProductDAO;
 import entity.Account;
 import entity.Order;
 import entity.OrderDetails;
 import entity.Product;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 
 /**
@@ -29,9 +30,19 @@ import java.time.LocalDateTime;
  */
 public class PaymentController extends HttpServlet {
 
+    OrderDetailsDAO orderDetailsDAO = new OrderDetailsDAO();
+    ProductDAO productDAO = new ProductDAO();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String orderId = request.getParameter("orderId");
+        if (orderId != null) {
+            List<Product> orderedProduct = productDAO.findProductByOrderId(orderId);
+            List<OrderDetails> oderedProductDetails = orderDetailsDAO.findOrderDetailsByOrderId(orderId);
+            request.setAttribute("oderedProductDetails", oderedProductDetails);
+            request.setAttribute("orderedProduct", orderedProduct);
+        }
         request.getRequestDispatcher("view/user/payment/cart.jsp").forward(request, response);
     }
 
@@ -129,13 +140,13 @@ public class PaymentController extends HttpServlet {
         cart.getListOrderDetails().remove(od);
         session.setAttribute("cart", cart);
     }
-    
+
     private void checkOut(HttpServletRequest request, HttpServletResponse response) {
         //lay ve cart
         HttpSession session = request.getSession();
         Order cart = (Order) session.getAttribute("cart");
         //lay ve account id
-        int accountId = ( (Account) session.getAttribute(CommonConst.SESSION_ACCOUNT)).getId();
+        int accountId = ((Account) session.getAttribute(CommonConst.SESSION_ACCOUNT)).getId();
         List<Product> list = (List<Product>) session.getAttribute(CommonConst.SESSION_PRODUCT);
         //amount
         int amount = calculateAmount(cart, list);
@@ -145,7 +156,7 @@ public class PaymentController extends HttpServlet {
         cart.setAmount(amount);
         cart.setCreateAt(Timestamp.valueOf(LocalDateTime.now()));
         //get list product
-        
+
         OrderDAO orderDAO = new OrderDAO();
         OrderDetailsDAO odDAO = new OrderDetailsDAO();
         int orderId = orderDAO.insert(cart);
@@ -154,10 +165,11 @@ public class PaymentController extends HttpServlet {
             odDAO.insert(obj);
         }
         //tru di so luong san pham o trong co so du lieu
-        
+
         //remove
         session.removeAttribute("cart");
     }
+
     private int calculateAmount(Order cart, List<Product> list) {
         int amount = 0;
         for (OrderDetails od : cart.getListOrderDetails()) {
@@ -165,7 +177,7 @@ public class PaymentController extends HttpServlet {
         }
         return amount;
     }
-    
+
     private float findPriceById(List<Product> list, int bookId) {
         for (Product obj : list) {
             if (obj.getId() == bookId) {

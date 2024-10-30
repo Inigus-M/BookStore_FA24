@@ -69,31 +69,4 @@ public class OrderDAO extends GenericDAO<Order> {
         pm.put("orderId", orderId);
         deleteGenericDAO(sql, pm);
     }
-
-    // Tim cac san pham da dat hang
-    public List<Product> findProductByOrderId(int orderId) throws SQLException {
-        // Tao list chua cac product
-        List<Product> userProduct = new ArrayList<>();
-        
-        // Truy van lay du lieu
-        String sql = "SELECT od.id AS orderDetailId, p.image, p.name, p.price, p.quantity\n"
-                + "                 FROM OrderDetails od\n"
-                + "                 JOIN Product p ON od.productId = p.id\n"
-                + "                 WHERE od.orderId = ?";
-        pm = new LinkedHashMap<>();
-        pm.put("orderId", orderId);
-        rs = ps.executeQuery();
-        
-        while(rs.next()){
-            Product p = new Product();
-                p.setId(rs.getInt("productId"));
-                p.setName(rs.getString("name"));
-                p.setImage(rs.getString("image"));
-                p.setPrice(rs.getDouble("price"));
-                p.setQuantity(rs.getInt("quantity"));
-
-                userProduct.add(p);
-        }
-        return userProduct;
-    }
 }
