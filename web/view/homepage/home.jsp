@@ -334,7 +334,7 @@
                                             <div class="product-wrapper mb-40">
                                                 <div class="product-img">
                                                     <a href="product-details?id=${p.id}">
-                                                        <img src="${pageContext.request.contextPath}/img/product/1_testing.png" alt="book" class="primary" />
+                                                        <img src="${pageContext.request.contextPath}/img/product/14.jpg" alt="book" class="primary" />
                                                     </a>
                                                     <div class="quick-view">
                                                         <a class="action-view" href="#" data-bs-target="#productModal" data-bs-toggle="modal" title="Quick View">

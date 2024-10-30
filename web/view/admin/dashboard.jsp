@@ -53,9 +53,6 @@
                         <!-- Breadcrumbs-->
                     <jsp:include page="../common/admin/breadcrumbs.jsp"></jsp:include>
 
-                        <!-- Icon Cards-->
-                    <jsp:include page="../common/admin/iconCard.jsp"></jsp:include>
-
 
 
                         <!-- DataTables Example -->
@@ -116,7 +113,6 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                     </div>
 
                 </div>

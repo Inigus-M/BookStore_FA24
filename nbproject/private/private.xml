@@ -3,16 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/PRJ301/BookStore/src/java/dal/AccountDAO.java</file>
-            <file>file:/G:/PRJ301/BookStore/web/view/common/homePage/header-top-area.jsp</file>
-            <file>file:/G:/PRJ301/BookStore/src/java/entity/Account.java</file>
-            <file>file:/G:/PRJ301/BookStore/web/view/admin/dashboard.jsp</file>
-            <file>file:/G:/PRJ301/BookStore/src/java/entity/PageControl.java</file>
-            <file>file:/G:/PRJ301/BookStore/src/java/controller/admin/DashboardServlet.java</file>
-            <file>file:/G:/PRJ301/BookStore/src/java/controller/filter/ExtensionFileFilter.java</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/common/homePage/header-mid-area.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/homepage/product-details.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/user/payment/cart.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/src/java/controller/user/DashboardUserServlet.java</file>
             <file>file:/G:/PRJ301/BookStore/src/java/controller/homepage/HomeController.java</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/user/dashboard/dashboard.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/web/WEB-INF/web.xml</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/common/homePage/main-menu-area.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/src/java/controller/user/PaymentController.java</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/common/homePage/mobile-menu-area.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/src/java/dal/GenericDAO.java</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/common/homePage/header-top-area.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/common/homePage/breadcrumbs-area.jsp</file>
+            <file>file:/G:/PRJ301/BookStore/web/view/homepage/home.jsp</file>
             <file>file:/G:/PRJ301/BookStore/src/java/controller/filter/AdminFilter.java</file>
-            <file>file:/G:/PRJ301/BookStore/src/java/controller/authen/AuthenticationController.java</file>
+            <file>file:/G:/PRJ301/BookStore/src/java/dal/OrderDAO.java</file>
+            <file>file:/G:/PRJ301/BookStore/src/java/entity/Product.java</file>
         </group>
     </open-files>
 </project-private>

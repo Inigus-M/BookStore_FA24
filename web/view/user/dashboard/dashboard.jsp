@@ -38,22 +38,39 @@
                         <div class="card mb-3">
                             <div class="card-header">
                                 <i class="fas fa-table"></i>
-                                Data Table Example
+                                Your Order
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>Order ID</th>
+                                                <th>Total Price</th>
+                                                <th>Created date</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>61</td>
+                                                <td>2011/04/25</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary"
+                                                            data-toggle="modal" 
+                                                            data-target="#editProductModal"
+                                                            onclick="editProductModal(this)">
+                                                        Edit
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger" 
+                                                            data-toggle="modal" data-target="#delete-product-modal"
+                                                            onclick="deleteProductModal(${p.id})">
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        <c:forEach items="${userOrder}" var="ud">
                                             <tr>
                                                 <td>Tiger Nixon</td>
                                                 <td>System Architect</td>
@@ -62,11 +79,11 @@
                                                 <td>2011/04/25</td>
                                                 <td>$320,800</td>
                                             </tr>
+                                        </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                         </div>
                     </div>
                     <!-- /.container-fluid -->

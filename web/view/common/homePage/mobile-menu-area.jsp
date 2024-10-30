@@ -10,7 +10,7 @@
                 <div class="mobile-menu">
                     <nav id="mobile-menu-active">
                         <ul id="nav">
-                            <li><a href="index.html">Home</a>
+                            <li><a href="home.jsp">Home</a>
                                 <ul>
                                     <li><a href="index.html">Home-1</a></li>
                                     <li><a href="index-2.html">Home-2</a></li>
